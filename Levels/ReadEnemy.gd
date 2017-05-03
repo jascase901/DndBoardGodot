@@ -1,56 +1,49 @@
 extends Node
 
+var GameState = load("res://Players/GameState.gd")
+var Decoder = load("res://Players/Decoder.gd")
+
+
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var enemies  = {}
-class Enemy:
-	var name
-	var x
-	var y
-	func _init(name, x, y):
-		self.name = name
-		self .x = x
-		self.y = y
+var game_state = GameState.new()
+var decoder = Decoder.new()
+var client
 	
 func _ready():
+	client = get_node("Client")
+	client.connect("data_recieved_signal",self,"Client")
 	
-	#s.set_pos(Enemy.x, Enemy.y)
-	var enemy_list = [Enemy.new("1", 50, 60),
-	Enemy.new("1", 50, 60),
-	Enemy.new("2", 150, 60),
-	Enemy.new("3", 250, 60),
-	Enemy.new("4", 350, 60)]
-	
-	for enemy in enemy_list:
-		enemies[enemy.name] = enemy
-	
-	add_enemies()
+	decoder.connect("figurine_pos", game_state, "addFigurine")
+	decoder.connect("player_connect", game_state, "moveFigurine")
+	decoder.connect("player_disconnect", game_state, "removeFigurine")
 
+	game_state.addFigurine("1", 50, 60)
 		
 	set_process(true)
 	# Called every time the node is added to the scene.
-	# Initialization here
-	
-func update_postions():
-	for enemy in enemies.values():
-		var ScreenEnemy = get_node(enemy.name)
-		ScreenEnemy.set_pos(Vector2(enemy.x, enemy.y))
+	# Initialization her
 
-func add_enemy(enemy):
+func blit_enemy(enemy):
 	var s = Label.new()
 	s.set_name(enemy.name)
 	s.set_text(enemy.name)
 	s.set_pos(Vector2(enemy.x, enemy.y))
-	s.show()
+	
+	#remove child if already in scene
+	if  has_node(enemy.name):
+		remove_child(get_node(enemy.name))
 	add_child(s)
 	
-func add_enemies():
-	for enemy in enemies.values():
-		add_enemy(enemy);
+func blit_enemies():
+	for enemy in game_state.getFigurines():
+		blit_enemy(enemy);
+		client.write([1,enemy.name, enemy.x, enemy.y])
 
-	
 func _process(delta):
-	#update_postions()
-
-	enemies["1"].x+=2;
+	blit_enemies()
+	
+func Client(data):
+	decoder.decode(data)
+	
