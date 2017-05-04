@@ -22,6 +22,4 @@ texture = ExtResource( 3 )
 
 id = "test"
 
-[connection signal="input_event" from="Yatmil" to="Yatmil" method="_on_RigidBody2D_input_event"]
-
 
