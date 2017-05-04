@@ -10,6 +10,7 @@ var Decoder = load("res://Players/Decoder.gd")
 var game_state = GameState.new()
 var decoder = Decoder.new()
 var client
+export var is_show_id = false
 	
 func _ready():
 	client = get_node("Client")
@@ -19,7 +20,6 @@ func _ready():
 	decoder.connect("player_connect", game_state, "moveFigurine")
 	decoder.connect("player_disconnect", game_state, "removeFigurine")
 
-	game_state.addFigurine("1", 50, 60)
 		
 	set_process(true)
 	# Called every time the node is added to the scene.
@@ -28,9 +28,10 @@ func _ready():
 func blit_enemy(enemy):
 	var s = Label.new()
 	s.set_name(enemy.name)
-	s.set_text(enemy.name)
 	s.set_pos(Vector2(enemy.x, enemy.y))
-	
+	if is_show_id:
+		s.set_text(enemy.name)
+
 	#remove child if already in scene
 	if  has_node(enemy.name):
 		remove_child(get_node(enemy.name))

@@ -2,22 +2,26 @@
 
 [ext_resource path="res://Levels/ReadEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Controllers/Client.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Controllers/DrabableRB.tscn" type="PackedScene" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Board.jpg" type="Texture" id=3]
+[ext_resource path="res://Players/Yatmil/Yatmil.tscn" type="PackedScene" id=4]
 
 [node name="Node" type="Node"]
 
 script/script = ExtResource( 1 )
+is_show_id = false
 
 [node name="Client" parent="." instance=ExtResource( 2 )]
 
-[node name="DragableRB" parent="." instance=ExtResource( 3 )]
+[node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 528.625, 330.265 )
-transform/scale = Vector2( 1.48046, 2.32079 )
+transform/pos = Vector2( 555.621, 308.998 )
+transform/scale = Vector2( 0.941454, 0.578561 )
+texture = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="DragableRB"]
+[node name="Yatmil" parent="." instance=ExtResource( 4 )]
 
-texture = ExtResource( 4 )
+id = "test"
+
+[connection signal="input_event" from="Yatmil" to="Yatmil" method="_on_RigidBody2D_input_event"]
 
 

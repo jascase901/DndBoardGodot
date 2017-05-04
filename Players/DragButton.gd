@@ -4,10 +4,12 @@ extends RigidBody2D
 # var a = 2
 # var b = "textvar"
 var game_state
+export var id="1"
 
 var is_held = false
 func _ready():
 	game_state = get_node("../../Node").game_state
+	game_state.addFigurine(id, get_pos().x, get_pos().y);
 	set_process_input(true)
 	set_process(true)
 	
@@ -17,12 +19,15 @@ func _input(event):
 		is_held = false
 	
 func _process(delta):
-	var fig = game_state.getFigurine("1")
+	var fig = game_state.getFigurine(id)
+	if fig == null:
+		print("not in game state fig_name:", id)
+		return
+		
 	set_pos(Vector2(fig.x, fig.y))
 	if is_held:
 		var mouse_pos = (get_viewport().get_mouse_pos())
-		game_state.moveFigurine("1",mouse_pos.x, mouse_pos.y)
-		#set_pos((get_viewport().get_mouse_pos()))
+		game_state.moveFigurine(id,mouse_pos.x, mouse_pos.y)
 			
 			
 func _on_RigidBody2D_input_event(viewport, event, shape_idx): 
