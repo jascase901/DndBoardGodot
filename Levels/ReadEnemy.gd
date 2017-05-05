@@ -8,6 +8,7 @@ var Decoder = load("res://Players/Decoder.gd")
 # var a = 2
 # var b = "textvar"
 var game_state = GameState.new()
+var game_statep = GameState.new()
 var decoder = Decoder.new()
 var client
 export var is_show_id = false
@@ -33,16 +34,26 @@ func blit_enemy(enemy):
 		s.set_text(enemy.name)
 
 	#remove child if already in scene
-	if  has_node(enemy.name):
-		remove_child(get_node(enemy.name))
+	
 	add_child(s)
 	
 func blit_enemies():
 	for enemy in game_state.getFigurines():
 		blit_enemy(enemy);
-		client.write([1,enemy.name, enemy.x, enemy.y])
+		var prev = game_statep.getFigurine(enemy.name)
+		var is_enemy_moved = (prev != null 
+			and
+			( 
+			(prev.x != enemy.x)
+			or
+			(prev.y != enemy.y)))
+			
+		if is_enemy_moved:
+			client.write([1,enemy.name, int(enemy.x), int(enemy.y)])
+		game_statep.addFigurine(enemy.name, int(enemy.x), int(enemy.y))
 
 func _process(delta):
+	pass
 	blit_enemies()
 	
 func Client(data):
