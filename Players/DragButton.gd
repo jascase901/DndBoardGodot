@@ -16,6 +16,10 @@ func _ready():
 func _input(event):
 	#is_held=true
 	if event.type == InputEvent.MOUSE_BUTTON and not event.pressed and event.button_index == BUTTON_LEFT:
+		var fig = game_state.getFigurine(id)
+		if is_held and fig != null:
+			var mouse_pos = (get_viewport().get_mouse_pos())
+			game_state.moveFigurine(id,int(mouse_pos.x), int(mouse_pos.y))
 		is_held = false
 	
 func _process(delta):
@@ -23,11 +27,12 @@ func _process(delta):
 	if fig == null:
 		print("not in game state fig_name:", id)
 		return
-		
 	set_pos(Vector2(fig.x, fig.y))
 	if is_held:
-		var mouse_pos = (get_viewport().get_mouse_pos())
-		game_state.moveFigurine(id,mouse_pos.x, mouse_pos.y)
+		pass
+
+
+
 			
 			
 func _on_RigidBody2D_input_event(viewport, event, shape_idx): 

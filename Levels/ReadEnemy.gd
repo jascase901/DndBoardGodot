@@ -27,6 +27,9 @@ func _ready():
 	# Initialization her
 
 func blit_enemy(enemy):
+	if  has_node(enemy.name):
+		return
+	
 	var s = Label.new()
 	s.set_name(enemy.name)
 	s.set_pos(Vector2(enemy.x, enemy.y))
@@ -53,7 +56,6 @@ func blit_enemies():
 		game_statep.addFigurine(enemy.name, int(enemy.x), int(enemy.y))
 
 func _process(delta):
-	pass
 	blit_enemies()
 	
 func Client(data):
