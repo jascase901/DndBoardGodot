@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 points = Vector2Array( 7.29732, -9.99991, 7.29732, 118, -9.99998, 118, -9.99998, -9.99991 )
 
-[node name="DragableRB" type="RigidBody2D"]
+[node name="DragableRB" type="KinematicBody2D"]
 
 transform/pos = Vector2( 544, 288 )
 input/pickable = true
@@ -16,24 +16,8 @@ shapes/0/transform = Matrix32( 3.7, 0, 0, 0.5, 4.99994, -27 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
-mode = 3
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
-damp_override/linear = -1.0
-damp_override/angular = -1.0
+collision/margin = 0.08
 script/script = ExtResource( 1 )
 id = "test"
-
-[connection signal="input_event" from="." to="." method="_on_RigidBody2D_input_event"]
 
 

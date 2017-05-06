@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -12,6 +12,7 @@ func _ready():
 	game_state.addFigurine(id, get_pos().x, get_pos().y);
 	set_process_input(true)
 	set_process(true)
+	set_fixed_process(true)
 	
 func _input(event):
 	#is_held=true
@@ -22,16 +23,31 @@ func _input(event):
 			game_state.moveFigurine(id,int(mouse_pos.x), int(mouse_pos.y))
 		is_held = false
 	
-func _process(delta):
+func _fixed_process(delta):
+
+	#if is_colliding():
+	#	print("collision")
 	var fig = game_state.getFigurine(id)
 	if fig == null:
 		print("not in game state fig_name:", id)
 		return
-	set_pos(Vector2(fig.x, fig.y))
+	#set_pos(Vector2(fig.x, fig.y))
+
+
+		
 	if is_held:
 		var mouse_pos = (get_viewport().get_mouse_pos())
-		set_pos(mouse_pos)
-		pass
+
+		if is_colliding():
+			print("collisiion")
+			var n = get_collision_normal()
+			var mouse_pos = n.slide( mouse_pos)
+		move_to(mouse_pos)	
+	else:
+		move_to(Vector2(fig.x, fig.y))
+		
+		
+
 
 
 

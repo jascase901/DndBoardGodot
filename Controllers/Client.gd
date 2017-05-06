@@ -46,7 +46,7 @@ func _ready():
 
 func write(command):
 	if connected:
-		print("Writing ", command)
+		#print("Writing ", command)
 		peer.put_var(command)
 	else:
 		print("command failed not connected")

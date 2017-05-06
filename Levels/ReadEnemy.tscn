@@ -30,7 +30,25 @@ id = "test"
 
 [node name="Scrub" parent="YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 412.236, 395.397 )
+transform/pos = Vector2( 420.191, 512.442 )
 id = "E1"
+
+[node name="Scrub 2" parent="YSort" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 290.644, 494.848 )
+id = "E2"
+
+[node name="Scrub 3" parent="YSort" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 397.992, 393.743 )
+id = "E3"
+
+[connection signal="input_event" from="YSort/Yatmil" to="YSort/Yatmil" method="_on_RigidBody2D_input_event"]
+
+[connection signal="input_event" from="YSort/Scrub" to="YSort/Scrub" method="_on_RigidBody2D_input_event"]
+
+[connection signal="input_event" from="YSort/Scrub 2" to="YSort/Scrub 2" method="_on_RigidBody2D_input_event"]
+
+[connection signal="input_event" from="YSort/Scrub 3" to="YSort/Scrub 3" method="_on_RigidBody2D_input_event"]
 
 
