@@ -29,6 +29,8 @@ func _process(delta):
 		return
 	set_pos(Vector2(fig.x, fig.y))
 	if is_held:
+		var mouse_pos = (get_viewport().get_mouse_pos())
+		set_pos(mouse_pos)
 		pass
 
 
