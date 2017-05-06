@@ -4,7 +4,6 @@
 [ext_resource path="res://Players/Enemies/Enemy.png" type="Texture" id=2]
 [ext_resource path="res://Players/Enemies/IdName.gd" type="Script" id=3]
 
-
 [node name="Scrub" instance=ExtResource( 1 )]
 
 id = "scrub"

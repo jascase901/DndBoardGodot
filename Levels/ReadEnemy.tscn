@@ -25,11 +25,12 @@ sort/enabled = true
 
 [node name="Yatmil" parent="YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 241.665, 374.639 )
+transform/pos = Vector2( 228.128, 454.059 )
 id = "test"
 
 [node name="Scrub" parent="YSort" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 412.236, 395.397 )
+id = "E1"
 
 
