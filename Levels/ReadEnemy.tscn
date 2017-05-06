@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Levels/ReadEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Controllers/Client.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/Board.jpg" type="Texture" id=3]
 [ext_resource path="res://Players/Yatmil/Yatmil.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Players/Enemies/Scrub.tscn" type="PackedScene" id=5]
 
 [node name="Node" type="Node"]
 
@@ -14,12 +15,17 @@ is_show_id = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 555.621, 308.998 )
+transform/pos = Vector2( 552.9, 308.998 )
 transform/scale = Vector2( 0.941454, 0.578561 )
 texture = ExtResource( 3 )
 
 [node name="Yatmil" parent="." instance=ExtResource( 4 )]
 
 id = "test"
+
+[node name="Enemy 1" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 728.109, 328.612 )
+id = "E1"
 
 
