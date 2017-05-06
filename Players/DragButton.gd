@@ -8,7 +8,7 @@ export var id="1"
 
 var is_held = false
 func _ready():
-	game_state = get_node("../../Node").game_state
+	game_state = get_node("../../../Node").game_state
 	game_state.addFigurine(id, get_pos().x, get_pos().y);
 	set_process_input(true)
 	set_process(true)

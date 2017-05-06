@@ -15,17 +15,21 @@ is_show_id = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 552.9, 308.998 )
+transform/pos = Vector2( 553.803, 308.998 )
 transform/scale = Vector2( 0.941454, 0.578561 )
 texture = ExtResource( 3 )
 
-[node name="Yatmil" parent="." instance=ExtResource( 4 )]
+[node name="YSort" type="YSort" parent="."]
 
+sort/enabled = true
+
+[node name="Yatmil" parent="YSort" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 241.665, 374.639 )
 id = "test"
 
-[node name="Enemy 1" parent="." instance=ExtResource( 5 )]
+[node name="Scrub" parent="YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 728.109, 328.612 )
-id = "E1"
+transform/pos = Vector2( 412.236, 395.397 )
 
 
