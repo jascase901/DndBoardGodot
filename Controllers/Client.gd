@@ -1,6 +1,6 @@
 extends "res://Controllers/net_constants.gd"
 const port = 3560
-var ip = "ec2-54-148-77-126.us-west-2.compute.amazonaws.com"
+var ip = "ec2-52-38-128-70.us-west-2.compute.amazonaws.com"
 var connection
 var peer
 var connected = false
@@ -8,6 +8,7 @@ signal data_recieved_signal
 var timeout = 5
 
 func clientConnect():
+	
   print("Connected t "+ip+ ":"+str(port))
   connected = true
   #TODO write connect command to peer stream

@@ -7,6 +7,7 @@ var game_state
 export var id="1"
 
 var is_held = false
+
 func _ready():
 	game_state = get_node("../../../Node").game_state
 	game_state.addFigurine(id, get_pos().x, get_pos().y);
@@ -31,20 +32,13 @@ func _fixed_process(delta):
 	if fig == null:
 		print("not in game state fig_name:", id)
 		return
-	#set_pos(Vector2(fig.x, fig.y))
-
-
+	set_pos(Vector2(fig.x, fig.y))
 		
 	if is_held:
 		var mouse_pos = (get_viewport().get_mouse_pos())
-
-		if is_colliding():
-			print("collisiion")
-			var n = get_collision_normal()
-			var mouse_pos = n.slide( mouse_pos)
-		move_to(mouse_pos)	
-	else:
-		move_to(Vector2(fig.x, fig.y))
+		set_pos(Vector2(int(mouse_pos.x), int(mouse_pos.y)))	
+	#else:
+		#set_pos(Vector2(fig.x, fig.y))
 		
 		
 

@@ -47,11 +47,14 @@ func blit_enemies():
 		var is_enemy_moved = (prev != null 
 			and
 			( 
-			(prev.x != enemy.x)
+			(int(prev.x) != int(enemy.x))
 			or
-			(prev.y != enemy.y)))
+			(int(prev.y) != int(enemy.y))))
 			
 		if is_enemy_moved:
+			print (enemy.name)
+			print (enemy.x - prev.x)
+			print("move")
 			client.write([1,enemy.name, int(enemy.x), int(enemy.y)])
 		game_statep.addFigurine(enemy.name, int(enemy.x), int(enemy.y))
 
