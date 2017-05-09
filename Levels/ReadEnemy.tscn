@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Levels/ReadEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Controllers/Client.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/TileMapExample.scn" type="PackedScene" id=3]
-[ext_resource path="res://Players/Yatmil/Yatmil.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Players/Enemies/Scrub.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Players/Cohen/Cohen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Players/Embra/Embra.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Players/Yatmil/Yatmil.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Players/Enemies/Scrub.tscn" type="PackedScene" id=7]
 
 [node name="Node" type="Node"]
 
@@ -19,24 +21,42 @@ is_show_id = false
 
 sort/enabled = true
 
-[node name="Yatmil" parent="YSort" instance=ExtResource( 4 )]
+[node name="Cohen" parent="YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 228.128, 454.059 )
+transform/pos = Vector2( 185.388, 370.88 )
 
-[node name="Scrub" parent="YSort" instance=ExtResource( 5 )]
+[node name="Embra" parent="YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 420.191, 512.442 )
+transform/pos = Vector2( 250.373, 432.945 )
+
+[node name="Yatmil" parent="YSort" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 185.067, 482.766 )
+
+[node name="Scrub" parent="YSort" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 889.51, 26.4216 )
 id = "E1"
 
-[node name="Scrub 2" parent="YSort" instance=ExtResource( 5 )]
+[node name="Scrub 2" parent="YSort" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 290.644, 494.848 )
+transform/pos = Vector2( 987.106, 38.8907 )
 id = "E2"
 
-[node name="Scrub 3" parent="YSort" instance=ExtResource( 5 )]
+[node name="Scrub 3" parent="YSort" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 397.992, 393.743 )
+transform/pos = Vector2( 696.953, 126.515 )
 id = "E3"
+
+[node name="Scrub 4" parent="YSort" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 694.316, 32.4635 )
+id = "E4"
+
+[node name="Scrub5" parent="YSort" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 794.526, 29.1231 )
+id = "E5"
 
 [connection signal="input_event" from="YSort/Yatmil" to="YSort/Yatmil" method="_on_RigidBody2D_input_event"]
 

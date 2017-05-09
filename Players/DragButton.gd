@@ -44,9 +44,12 @@ func _fixed_process(delta):
 
 
 
+			
+			
+#func _on_RigidBody2D_input_event(viewport, event, shape_idx): 
+#	if event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == BUTTON_LEFT:
+		#is_held = true
 
-			
-			
-func _on_RigidBody2D_input_event(viewport, event, shape_idx): 
+func _on_DragableRB_input_event( viewport, event, shape_idx ):
 	if event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == BUTTON_LEFT:
 		is_held = true

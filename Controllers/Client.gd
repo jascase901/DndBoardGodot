@@ -1,6 +1,7 @@
 extends "res://Controllers/net_constants.gd"
 const port = 3560
 var ip = "ec2-52-38-128-70.us-west-2.compute.amazonaws.com"
+#var ip = "localhost"
 var connection
 var peer
 var connected = false

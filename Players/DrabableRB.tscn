@@ -20,4 +20,6 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 id = "test"
 
+[connection signal="input_event" from="." to="." method="_on_DragableRB_input_event"]
+
 

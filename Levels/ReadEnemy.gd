@@ -63,4 +63,3 @@ func _process(delta):
 	
 func Client(data):
 	decoder.decode(data)
-	
