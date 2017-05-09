@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Players/DrabableRB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Players/Embra/Embra.png" type="Texture" id=2]
+
+[node name="Embra" instance=ExtResource( 1 )]
+
+id = "Embra"
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 145, 265, 64, 64 )
+
+
