@@ -16,7 +16,9 @@ margin/bottom = 40.0
 popup/exclusive = false
 window/title = ""
 script/script = ExtResource( 1 )
-__meta__ = { "_editor_icon":ExtResource( 2 ) }
+__meta__ = {
+"_editor_icon": ExtResource( 2 )
+}
 _run_on_load = false
 _select_script = null
 _tests_like = null

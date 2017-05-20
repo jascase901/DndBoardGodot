@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Levels/ReadEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Controllers/Client.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/TileMapExample.scn" type="PackedScene" id=3]
-[ext_resource path="res://Players/Cohen/Cohen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Players/Embra/Embra.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Players/Yatmil/Yatmil.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Players/Enemies/Scrub.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/tilesets/8-x-6-grid-transparent-background-black-borders.png" type="Texture" id=4]
+[ext_resource path="res://Players/Enemies/Scrub.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Players/Remmy/Remmy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Players/Malvo/Malvo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Players/Mhira/Mhira.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Players/Fhelsi/fhelsi.tscn" type="PackedScene" id=9]
 
 [node name="Node" type="Node"]
 
@@ -17,48 +19,78 @@ is_show_id = false
 
 [node name="TileMapExample" parent="." instance=ExtResource( 3 )]
 
+[node name="8-x-6-grid-transparent-background-black-borders" type="Sprite" parent="TileMapExample"]
+
+visibility/self_opacity = 0.2
+transform/pos = Vector2( 253.518, 186.098 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="8-x-6-grid-transparent-background-black-borders2" type="Sprite" parent="TileMapExample"]
+
+visibility/self_opacity = 0.2
+transform/pos = Vector2( 253.518, 443.098 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="8-x-6-grid-transparent-background-black-borders1" type="Sprite" parent="TileMapExample"]
+
+visibility/self_opacity = 0.2
+transform/pos = Vector2( 764.19, 187.169 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="8-x-6-grid-transparent-background-black-borders2 2" type="Sprite" parent="TileMapExample"]
+
+visibility/self_opacity = 0.2
+transform/pos = Vector2( 764.19, 444.169 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
 [node name="YSort" type="YSort" parent="."]
 
 sort/enabled = true
 
-[node name="Cohen" parent="YSort" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 185.388, 370.88 )
-
-[node name="Embra" parent="YSort" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 250.373, 432.945 )
-
-[node name="Yatmil" parent="YSort" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 185.067, 482.766 )
-
-[node name="Scrub" parent="YSort" instance=ExtResource( 7 )]
+[node name="Scrub" parent="YSort" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 889.51, 26.4216 )
 id = "E1"
 
-[node name="Scrub 2" parent="YSort" instance=ExtResource( 7 )]
+[node name="Scrub 2" parent="YSort" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 987.106, 38.8907 )
 id = "E2"
 
-[node name="Scrub 3" parent="YSort" instance=ExtResource( 7 )]
+[node name="Scrub 3" parent="YSort" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 696.953, 126.515 )
 id = "E3"
 
-[node name="Scrub 4" parent="YSort" instance=ExtResource( 7 )]
+[node name="Scrub 4" parent="YSort" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 694.316, 32.4635 )
 id = "E4"
 
-[node name="Scrub5" parent="YSort" instance=ExtResource( 7 )]
+[node name="Scrub5" parent="YSort" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 794.526, 29.1231 )
 id = "E5"
 
-[connection signal="input_event" from="YSort/Yatmil" to="YSort/Yatmil" method="_on_RigidBody2D_input_event"]
+[node name="Remy" parent="YSort" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 117.426, 111.643 )
+
+[node name="Malvo" parent="YSort" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 189.923, 108.528 )
+
+[node name="Mhira" parent="YSort" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 181.796, 175.244 )
+
+[node name="fhelsi" parent="YSort" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 698.761, 317.123 )
 
 [connection signal="input_event" from="YSort/Scrub" to="YSort/Scrub" method="_on_RigidBody2D_input_event"]
 

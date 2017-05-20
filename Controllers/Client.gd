@@ -1,7 +1,7 @@
 extends "res://Controllers/net_constants.gd"
 const port = 3560
-#var ip = "ec2-52-38-128-70.us-west-2.compute.amazonaws.com"
-var ip = "localhost"
+
+var ip
 var connection
 var peer
 var connected = false
@@ -40,6 +40,11 @@ func TryConnection(connection):
 		clientConnectFailed()
 	
 func _ready():
+	var config = ConfigFile.new()
+	var err = config.load("res://settings.cfg")
+	if err == OK: # if not, something went wrong with the file loading
+	    ip = config.get_value("networking", "serverip", "localhost")
+	    print("setting ip to ", ip)
 	connection = StreamPeerTCP.new()
 	connection.connect(ip, port)
 	peer = PacketPeerStream.new()

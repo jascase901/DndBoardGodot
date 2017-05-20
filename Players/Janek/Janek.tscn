@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Players/DrabableRB.tscn" type="PackedScene" id=1]
+
+[node name="Janek" instance=ExtResource( 1 )]
+
+

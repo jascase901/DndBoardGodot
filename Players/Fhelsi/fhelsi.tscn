@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Players/DrabableRB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Players/Fhelsi/fhelsi.png" type="Texture" id=2]
+
+[node name="fhelsi" instance=ExtResource( 1 )]
+
+id = "Fhelsi"
+
+[node name="fhelsi" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+
