@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Levels/ReadEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Controllers/Client.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Players/Malvo/Malvo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Players/Mhira/Mhira.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Players/Fhelsi/fhelsi.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Controllers/Not Connected.tscn" type="PackedScene" id=10]
 
 [node name="Node" type="Node"]
 
@@ -18,6 +19,8 @@ is_show_id = false
 [node name="Client" parent="." instance=ExtResource( 2 )]
 
 [node name="TileMapExample" parent="." instance=ExtResource( 3 )]
+
+editor/display_folded = true
 
 [node name="8-x-6-grid-transparent-background-black-borders" type="Sprite" parent="TileMapExample"]
 
@@ -49,6 +52,7 @@ texture = ExtResource( 4 )
 
 [node name="YSort" type="YSort" parent="."]
 
+editor/display_folded = true
 sort/enabled = true
 
 [node name="Scrub" parent="YSort" instance=ExtResource( 5 )]
@@ -86,11 +90,13 @@ transform/pos = Vector2( 189.923, 108.528 )
 
 [node name="Mhira" parent="YSort" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 181.796, 175.244 )
+transform/pos = Vector2( 169.519, 226.809 )
 
 [node name="fhelsi" parent="YSort" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 698.761, 317.123 )
+
+[node name="Not Connected" parent="." instance=ExtResource( 10 )]
 
 [connection signal="input_event" from="YSort/Scrub" to="YSort/Scrub" method="_on_RigidBody2D_input_event"]
 

@@ -1,11 +1,11 @@
 extends "res://Controllers/net_constants.gd"
 const port = 3560
-
-var ip
+var ip = "localhost"
 var connection
 var peer
 var connected = false
 signal data_recieved_signal
+signal not_connected_signal
 var timeout = 5
 
 func clientConnect():
@@ -22,7 +22,11 @@ func clientConnecting():
 	
 func clientConnectFailed():
 	print( "Couldn't connect to "+ip+" :"+str(port) )
-	set_process(false)
+	emit_signal("not_connected_signal", [ip, port])
+	#_ready()
+	connection.disconnect()
+	connection.connect(ip, port)
+	#set_process(false)
 	#TODO GotoMenu
 	
 func TryConnection(connection):
@@ -56,7 +60,8 @@ func _ready():
 func write(command):
 	if connected:
 		#print("Writing ", command)
-		peer.put_var(command)
+		if (peer.put_var(command) != OK):
+			connected=false
 	else:
 		print("command failed not connected")
 
@@ -65,6 +70,8 @@ func _process(delta):
 		TryConnection(connection)
 		if timeout > 0:
 			timeout -= delta
+
+			
 		
 	for i in range (peer.get_available_packet_count() ):
 		emit_signal("data_recieved_signal", peer.get_var())

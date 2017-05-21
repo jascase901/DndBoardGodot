@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Controllers/Not Connected.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "New Anim"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Display/Label:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Not Connected" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Display" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/New Anim" = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "New Anim"
+
+[node name="Label" type="Label" parent="Display"]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 440.0
+margin/top = 335.0
+margin/right = 535.0
+margin/bottom = 349.0
+text = "Not Connected"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
