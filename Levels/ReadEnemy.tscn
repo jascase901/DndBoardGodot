@@ -20,8 +20,6 @@ is_show_id = false
 
 [node name="TileMapExample" parent="." instance=ExtResource( 3 )]
 
-editor/display_folded = true
-
 [node name="8-x-6-grid-transparent-background-black-borders" type="Sprite" parent="TileMapExample"]
 
 visibility/self_opacity = 0.2
@@ -52,7 +50,6 @@ texture = ExtResource( 4 )
 
 [node name="YSort" type="YSort" parent="."]
 
-editor/display_folded = true
 sort/enabled = true
 
 [node name="Scrub" parent="YSort" instance=ExtResource( 5 )]
@@ -97,11 +94,5 @@ transform/pos = Vector2( 169.519, 226.809 )
 transform/pos = Vector2( 698.761, 317.123 )
 
 [node name="Not Connected" parent="." instance=ExtResource( 10 )]
-
-[connection signal="input_event" from="YSort/Scrub" to="YSort/Scrub" method="_on_RigidBody2D_input_event"]
-
-[connection signal="input_event" from="YSort/Scrub 2" to="YSort/Scrub 2" method="_on_RigidBody2D_input_event"]
-
-[connection signal="input_event" from="YSort/Scrub 3" to="YSort/Scrub 3" method="_on_RigidBody2D_input_event"]
 
 

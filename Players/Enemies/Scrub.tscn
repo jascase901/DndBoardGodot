@@ -6,6 +6,7 @@
 
 [node name="Scrub" instance=ExtResource( 1 )]
 
+transform/pos = Vector2( 0, 0 )
 id = "scrub"
 
 [node name="Sprite" type="Sprite" parent="."]

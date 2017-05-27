@@ -17,12 +17,12 @@ func clientConnect():
 
   
 func clientConnecting():
-	print( "Trying to connect "+ip+" :"+str(port) )
-	print( "Timeout in: ",timeout," seconds")
+	pass
+	#print( "Trying to connect "+ip+" :"+str(port) )
+	#print( "Timeout in: ",timeout," seconds")
 	
 func clientConnectFailed():
 	print( "Couldn't connect to "+ip+" :"+str(port) )
-	emit_signal("not_connected_signal", [ip, port])
 	#_ready()
 	connection.disconnect()
 	connection.connect(ip, port)
@@ -42,6 +42,7 @@ func TryConnection(connection):
 		clientConnecting()
 	elif is_unable_to_connect:
 		clientConnectFailed()
+	emit_signal("not_connected_signal", [ip, port])
 	
 func _ready():
 	var config = ConfigFile.new()
@@ -50,7 +51,7 @@ func _ready():
 	    ip = config.get_value("networking", "serverip", "localhost")
 	    print("setting ip to ", ip)
 	connection = StreamPeerTCP.new()
-	connection.connect(ip, port)
+	connection.connect(ip , port)
 	peer = PacketPeerStream.new()
 	peer.set_stream_peer(connection)
 	set_process(true)
