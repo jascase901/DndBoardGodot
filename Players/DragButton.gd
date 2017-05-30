@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+var shader = preload("res://highlight_material.tres")
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
@@ -9,12 +9,13 @@ export var id="1"
 var is_held = false
 var selected_id = null
 func _ready():
+	set_material(shader.duplicate())
+
 	game_state = get_node("../../../Node").game_state
 	game_state.addFigurine(id, get_pos().x, get_pos().y);
 	set_process(true)
 	set_fixed_process(true)
 
-		
 func _fixed_process(delta):
 	var fig = game_state.getFigurine(id)
 	if fig == null:
@@ -31,8 +32,14 @@ func _fixed_process(delta):
 			if result.collider extends KinematicBody2D:
 				selected_id = result.collider_id
 				print(selected_id)
+	var isSelected = self.get_instance_ID() == selected_id
+	
+	if isSelected:
+		get_material().set_shader_param("enabled", true);
+	else:
+		get_material().set_shader_param("enabled", false);
 
-	if is_held and (self.get_instance_ID() == selected_id):
+	if is_held and isSelected:
 		set_pos(Vector2(int(mouse_pos.x), int(mouse_pos.y)))
 
 func _on_DragableRB_input_event( viewport, event, shape_idx ):

@@ -9,6 +9,7 @@ id = "Fhelsi"
 
 [node name="fhelsi" type="Sprite" parent="."]
 
+material/use_parent = true
 transform/scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 

@@ -10,6 +10,7 @@ id = "malvo"
 
 [node name="MalvoRemy" type="Sprite" parent="."]
 
+material/use_parent = true
 transform/scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 2 )
 flip_h = true

@@ -49,7 +49,7 @@ func _ready():
 	var err = config.load("res://settings.cfg")
 	if err == OK: # if not, something went wrong with the file loading
 	    ip = config.get_value("networking", "serverip", "localhost")
-	    print("setting ip to ", ip)
+	    #print("setting ip to ", ip)
 	connection = StreamPeerTCP.new()
 	connection.connect(ip , port)
 	peer = PacketPeerStream.new()

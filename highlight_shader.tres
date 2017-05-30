@@ -1,0 +1,21 @@
+[gd_resource type="CanvasItemShader" format=1]
+
+[resource]
+
+_code = {
+"fragment": "uniform bool enabled = true;
+//COLOR = vec4(1,1,0,2);
+if(enabled)
+{
+	vec3 shade = vec3(dot(COLOR.rgb, vec3(.5, .5, .5)));
+	COLOR.r = shade.r;
+}
+
+",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+

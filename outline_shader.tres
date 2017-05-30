@@ -1,0 +1,31 @@
+[gd_resource type="CanvasItemMaterial" load_steps=2 format=1]
+
+[sub_resource type="CanvasItemShader" id=1]
+
+_code = {
+"fragment": "uniform texture source;
+uniform float step_x = .01;
+uniform float step_y = .01;
+
+float alpha = 4 * tex(source, UV).a;
+alpha -= tex(source, UV + vec2(step_x, 0)).a;
+alpha -= tex(source, UV + vec2(-step_x, 0)).a;
+alpha -= tex(source, UV + vec2(0, step_y)).a;
+alpha -= tex(source, UV + vec2(0, -step_y)).a;
+
+COLOR = vec4(1,0,0,alpha);
+",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[resource]
+
+shader/shader = SubResource( 1 )
+shader/shading_mode = 0
+shader_param/step_x = 0.01
+shader_param/step_y = 0.01
+

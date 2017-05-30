@@ -11,6 +11,7 @@ id = "scrub"
 
 [node name="Sprite" type="Sprite" parent="."]
 
+material/use_parent = true
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
