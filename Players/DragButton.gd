@@ -16,8 +16,17 @@ func _ready():
 	game_state.addFigurine(id, get_pos().x, get_pos().y);
 	set_process(true)
 	set_fixed_process(true)
+	
+func _process(delta):
+	pass
+	
 
 func _fixed_process(delta):
+	var fig = game_state.getFigurine(id)
+	if fig == null:
+		print("not in game state fig_name:", id)
+		return
+	set_pos(Vector2(fig.x, fig.y))
 	#var is_nothing_selected = SELECTED_SINGLETON.SELECTED_ID == null;
 	var mouse_pos = (get_viewport().get_mouse_pos())
 
@@ -28,19 +37,15 @@ func _fixed_process(delta):
 		get_material().set_shader_param("enabled", false);	
 		return;
 	
-	var fig = game_state.getFigurine(id)
-	if fig == null:
-		print("not in game state fig_name:", id)
-		return
-	set_pos(Vector2(fig.x, fig.y))
-
+	
+		
 
 	if is_held:
 		set_pos(Vector2(int(mouse_pos.x), int(mouse_pos.y)))
 		get_material().set_shader_param("enabled", true);
 
-
 func _on_DragableRB_input_event( viewport, event, shape_idx ):
+	#Request new selection and 
 	if event.is_action_pressed("MOUSE_BUTTON"):
 		SELECTED_SINGLETON.SELECTED_ID=null
 		is_held = true
