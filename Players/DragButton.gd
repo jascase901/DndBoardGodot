@@ -16,10 +16,6 @@ func _ready():
 	game_state.addFigurine(id, get_pos().x, get_pos().y);
 	set_process(true)
 	set_fixed_process(true)
-	
-func _process(delta):
-	pass
-	
 
 func _fixed_process(delta):
 	var fig = game_state.getFigurine(id)
@@ -36,16 +32,13 @@ func _fixed_process(delta):
 	if not is_this_node_selected:
 		get_material().set_shader_param("enabled", false);	
 		return;
-	
-	
-		
 
 	if is_held:
 		set_pos(Vector2(int(mouse_pos.x), int(mouse_pos.y)))
 		get_material().set_shader_param("enabled", true);
 
+
 func _on_DragableRB_input_event( viewport, event, shape_idx ):
-	#Request new selection and 
 	if event.is_action_pressed("MOUSE_BUTTON"):
 		SELECTED_SINGLETON.SELECTED_ID=null
 		is_held = true
