@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://Players/DrabableRB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Players/DragableCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Players/Enemies/Enemy.png" type="Texture" id=2]
 [ext_resource path="res://Players/Enemies/IdName.gd" type="Script" id=3]
 

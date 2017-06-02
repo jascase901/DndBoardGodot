@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 points = Vector2Array( 7.29732, -9.99991, 7.29732, 118, -9.99998, 118, -9.99998, -9.99991 )
 
-[node name="DragableRB" type="KinematicBody2D"]
+[node name="DragableCharacter" type="KinematicBody2D"]
 
 transform/pos = Vector2( 544, 288 )
 input/pickable = true
@@ -20,6 +20,6 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 id = "test"
 
-[connection signal="input_event" from="." to="." method="_on_DragableRB_input_event"]
+[connection signal="input_event" from="." to="." method="_on_DragableCharacter_input_event"]
 
 

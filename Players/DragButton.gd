@@ -39,7 +39,7 @@ func _fixed_process(delta):
 	is_this_node_selected =( 
 		self.get_instance_ID() == SELECTED_SINGLETON.get_selected(mouse_pos))
 	
-func _on_DragableRB_input_event( viewport, event, shape_idx ):
+func _on_DragableCharacter_input_event( viewport, event, shape_idx ):
 	if event.is_action_pressed("MOUSE_BUTTON"):
 		SELECTED_SINGLETON.SELECTED_ID=null
 		is_held = true
