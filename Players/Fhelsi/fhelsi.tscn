@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://Players/DragableCharacter.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Players/Fhelsi/fhelsi.png" type="Texture" id=2]
+[ext_resource path="res://Players/FhelsiAndMhira.png" type="Texture" id=2]
 
 [node name="fhelsi" instance=ExtResource( 1 )]
 
@@ -10,7 +10,10 @@ id = "Fhelsi"
 [node name="fhelsi" type="Sprite" parent="."]
 
 material/use_parent = true
-transform/scale = Vector2( 0.1, 0.1 )
+transform/scale = Vector2( 0.06, 0.07 )
 texture = ExtResource( 2 )
+flip_h = true
+region = true
+region_rect = Rect2( 1100, 0, 950, 1500 )
 
 
