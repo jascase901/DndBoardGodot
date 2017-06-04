@@ -79,7 +79,7 @@ id = "E5"
 
 [node name="Remy" parent="YSort" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 117.426, 111.643 )
+transform/pos = Vector2( 149.347, 360.872 )
 
 [node name="Malvo" parent="YSort" instance=ExtResource( 7 )]
 
@@ -91,7 +91,7 @@ transform/pos = Vector2( 169.519, 226.809 )
 
 [node name="fhelsi" parent="YSort" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 698.761, 317.123 )
+transform/pos = Vector2( 317.858, 121.23 )
 
 [node name="Not Connected" parent="." instance=ExtResource( 10 )]
 
