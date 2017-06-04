@@ -54,27 +54,27 @@ sort/enabled = true
 
 [node name="Scrub" parent="YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 889.51, 26.4216 )
+transform/pos = Vector2( 828.141, 375.108 )
 id = "E1"
 
 [node name="Scrub 2" parent="YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 987.106, 38.8907 )
+transform/pos = Vector2( 858.789, 267.629 )
 id = "E2"
 
 [node name="Scrub 3" parent="YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 696.953, 126.515 )
+transform/pos = Vector2( 666.269, 265.99 )
 id = "E3"
 
 [node name="Scrub 4" parent="YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 694.316, 32.4635 )
+transform/pos = Vector2( 766.843, 266.781 )
 id = "E4"
 
 [node name="Scrub5" parent="YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 794.526, 29.1231 )
+transform/pos = Vector2( 685.736, 380.599 )
 id = "E5"
 
 [node name="Remy" parent="YSort" instance=ExtResource( 6 )]
